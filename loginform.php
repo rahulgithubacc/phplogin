@@ -1,4 +1,6 @@
-
+<?php
+$session_start();
+?>
 <html>
 <form method="post" action="login.php">
         <input type="text" name="user" placeholder="Username"><br>

@@ -1,57 +1,10 @@
- <html>
-<body>
-<h1>Registration</h1>
-<form method="POST" action=" ">
-<input type="text" name="id" placeholder="id" required><br>
-<input type="text" name="user" placeholder="Useranme" required><br>
-<input type="email" name="email" placeholder="Email" required><br>
-<input type="password" name="pass" placeholder="Password"required><br>
-<input type="submit" name="submit" value="Register">
-</body>
-</html> 
 <?php 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-// session_start();
-// $svar=$_SESSION['user'];
-// if($svar)
-// {
-//   echo "Please logout to access this page";
-//   echo "<a href='Logout.php'><br>Logout</a>";
-//   exit();
-// }
-
-include ('Connection.php');
-// include ('mail.php');
-?>
-
-<?php 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-class Registeruser extends Connection{
-  public $hashh;
-    public function insertion($id,$user,$email,$pass,$hashh)
-{
-    $p = md5($pass);
-    $sql = $this->conn->prepare("insert into users (id,user, email, pass, hashh) values ('$id','$user','$email','$p','$hashh')");
-    $r=$sql->execute();
-   echo "New User Registered";  
-}
-}
-  
-  $r= new Registeruser();
-  
-  $hashh = rand(10,1000);
-    if ($_SERVER['REQUEST_METHOD'] == 'POST')
-  {
-      $id=$_POST['id'];
-      $user=$_POST['user'];
-      $email=$_POST['email'];
-      $pass=$_POST['pass'];
-  $r->insertion($id,$user,$email,$pass,$hashh);
-    class Email extends Registeruser{
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
+    
+     
+    
+    class Email{
     public function Emailfunction($email,$hashh){
     
     
@@ -66,7 +19,7 @@ ini_set('display_errors', 1);
 //Load Composer's autoloader
 require 'vendor/autoload.php';
 
-$mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+// $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
 try {
     //Server settings
     $mail->SMTPDebug = 2;                                 // Enable verbose debug output
@@ -103,8 +56,3 @@ try {
 }
     }
 }
-  $e = new Email();
-  $E = $e->Emailfunction($_POST['email'],$hashh);
-
-  }
-?>

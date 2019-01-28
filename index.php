@@ -31,7 +31,7 @@ class Index extends Connection {
   {
    // print_r($this->conn);
    $p = md5($pass);
-    $sql = $this->conn->prepare("SELECT * FROM users WHERE user='$user' and pass='$p'");
+    $sql = $this->conn->prepare("SELECT * FROM users WHERE user='$user' and pass='$p' and activeuser =1");
     $sql->execute();
     $count=$sql->rowCount();
     return $count;  
