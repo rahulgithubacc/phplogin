@@ -1,4 +1,9 @@
 {
+        "name": "",
+       "description": "",
+       "autoload": {
+       "psr-4": {"rahul\\PHP_Project\\": "src/"}
+     },
     "require": {
         "phpmailer/phpmailer": "^6.0"
     }

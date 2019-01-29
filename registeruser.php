@@ -39,7 +39,7 @@ class Registeruser extends Connection{
     $p = md5($pass);
     $sql = $this->conn->prepare("insert into users (id,user, email, pass, hashh) values ('$id','$user','$email','$p','$hashh')");
     $r=$sql->execute();
-   echo "New User Registered";  
+   echo "<br>New User Registered"."<br>";  
 }
 }
   
@@ -71,7 +71,7 @@ require 'vendor/autoload.php';
 $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
 try {
     //Server settings
-    $mail->SMTPDebug = 2;                                 // Enable verbose debug output
+    //$mail->SMTPDebug = 2;                                 // Enable verbose debug output
     $mail->isSMTP();                                      // Set mailer to use SMTP
     $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
     $mail->SMTPAuth = true;                               // Enable SMTP authentication
@@ -99,7 +99,7 @@ try {
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     $mail->send();
-    echo 'Message has been sent';
+    echo 'Verification mail has been sent to ur mail.Kindly check your mailbox';
 } catch (Exception $e) {
     echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
 }

@@ -1,7 +1,16 @@
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+use rahul\PHP_Project\Connection;
+require 'vendor/autoload.php';
+
+
 session_start();
 
-include('Connection.php');
+// include('Connection.php');
 if(!empty($_SESSION['user'])) 
 {
   echo "You have logged in previously </br>";
