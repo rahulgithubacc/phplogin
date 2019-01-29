@@ -2,7 +2,7 @@
 <body>
 <h1>Registration</h1>
 <form method="POST" action=" ">
-<input type="text" name="id" placeholder="id" required><br>
+<input type="text" name="id" placeholder="id"  required><br>
 <input type="text" name="user" placeholder="Useranme" required><br>
 <input type="email" name="email" placeholder="Email" required><br>
 <input type="password" name="pass" placeholder="Password"required><br>
@@ -23,11 +23,13 @@ error_reporting(E_ALL);
 //   exit();
 // }
 
-include ('Connection.php');
+// include ('Connection.php');
 // include ('mail.php');
 ?>
 
 <?php 
+use rahul\PHP_Project\Connection;
+require 'vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 class Registeruser extends Connection{
