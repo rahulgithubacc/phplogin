@@ -1,4 +1,7 @@
 <?php
+namespace rahul\PHP_Project;
+use \PDO;
+
 class Connection{
     
  public $servername = "localhost";
